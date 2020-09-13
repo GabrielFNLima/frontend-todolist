@@ -1,23 +1,14 @@
 <template>
   <div class="container grid-lg py-2">
     <div class="search-input">
+      <div @click="backHome" class="backHome">abrir outro todo</div>
       <h1>
-        <input
-          type="text"
-          class="form-input"
-          @change="search"
-          v-model="route"
-        />
+        <input type="text" class="form-input" @change="search" v-model="route" />
       </h1>
     </div>
     <form @submit.prevent="add(todo)">
       <div class="input-group">
-        <input
-          type="text"
-          v-model="todo.title"
-          class="form-input"
-          placeholder="New List"
-        />
+        <input type="text" v-model="todo.title" class="form-input" placeholder="New List" />
         <button class="btn">Add</button>
       </div>
     </form>
@@ -65,6 +56,9 @@ export default {
     this.$store.dispatch("get_todo", this.route);
   },
   methods: {
+    backHome() {
+      this.$router.push("/");
+    },
     add(todo) {
       this.$store.dispatch("addTodo", todo);
       this.todo = {};
@@ -83,6 +77,14 @@ export default {
 };
 </script>
 <style scoped>
+.backHome {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity .2;
+}
+.backHome:hover {
+  opacity: 1;
+}
 form .input-group .btn {
   margin: 0 0 0 15px;
 }

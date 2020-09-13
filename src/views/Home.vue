@@ -13,7 +13,7 @@
       </div>
       <div id="text">
         Dont login, just use a URL<br />
-        Dont save, text is auto-saved<br />
+        Dont save, todo is auto-saved<br />
         TodoList!<br />
       </div>
     </div>
